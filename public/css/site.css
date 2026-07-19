@@ -1,0 +1,261 @@
+/* These are the main sites I used to get started with CCS grid layouts.
+  https://gridbyexample.com/examples/
+  https://css-tricks.com/complete-guide-css-grid-layout
+*/
+body {
+    background-color: #13111c;
+    margin: 0;
+    padding: 0;
+    min-height: 100dvh;
+}
+
+.text-forground {
+    color: #f2f2f2;
+}
+
+
+.page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* ===== Header and Navigation ===== */
+header {
+    background: #1d1429;
+    color: #fff;
+    padding: 1rem 2rem;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #1d1429;
+    color: #d1d5db;
+    padding: 1rem 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.footer-grid p:last-child {
+    text-align: right;
+}
+
+
+
+/* ===== Montey Banner ===== */
+.montey-banner {
+    grid-column: 1 / -1;
+    /* full width across grid */
+    display: grid;
+    justify-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.montey-banner img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* ===== Main Content ===== */
+main {
+    display: grid;
+    grid-template-columns: 1fr min(900px, 90%) 1fr;
+    padding: 2rem 0;
+}
+
+main>* {
+    grid-column: 2;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    /* grid-template-columns:[col1-start] 325px [col2-start] 325px [col3-start] 250px [col3-end]; */
+    grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [col3-end];
+    grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+}
+/* Remove top padding after the first article */
+.wrapper article:last-child {
+    padding-top: 0;
+}
+
+article {
+    /* background: #fff; */
+    background: #181622cc;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    margin-bottom: 1rem;
+    color: #f2f2f2;
+}
+
+h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #f2f2f2;
+}
+
+p {
+    margin-bottom: 1rem;
+    /* color: #67656c; */
+    color: #8b8a90;
+}
+
+ul.features {
+    margin: 0.5rem 0 1rem 1.5rem;
+    color: #8b8a90;
+}
+
+/* ===== Card grid for home page ===== */
+/* https://css-tricks.com/complete-guide-css-grid-layout/#prop-grid-template-columns-rows */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.card {
+    background: #5f5184;
+    /* background: # */
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.card:hover {
+    background: #4b3f6e;
+}
+
+.card a {
+    text-decoration: none;
+    color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* clickable code from https://generatepress.com/forums/topic/making-full-div-clickable/ */
+.clickable-card {
+    position: relative;
+    padding: 20px;
+}
+
+.main-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* Stretches the click area to the edges of the div */
+}
+
+/* ===== Column layout for JavaScript features ===== */
+.js-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.js-features-grid .features,
+.wrapper .features,
+.sources .features {
+    margin: 0;
+}
+
+.js-features-grid li {
+    margin: 0;
+}
+
+
+.js-article-history {
+    grid-column: col1-start / col3-start;
+    grid-row: row1-start;
+}
+
+.js-article-Resources {
+    grid-column: col3-start;
+    grid-row: row1-start;
+}
+
+
+.js-article-Resources a, .sources a,  .js-article-sources a {
+    color: #625086;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.js-article-Resources a:hover, .sources a:hover, .js-article-sources a:hover {
+    color: #60a5fa;
+}
+
+
+.js-article-Features {
+    grid-column: col1-start / col2-end;
+    grid-row: row2-start;
+}
+.js-article-sources {
+    grid-column: col1-start / col2-end;
+    grid-row: row3-start;
+}
+/* Stack on small screens */
+
+@media (max-width: 850px) {
+    .js-features-grid,
+    .card-grid,
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .js-article-history,
+    .js-article-Features,
+    .js-article-Resources,
+    .js-article-sources {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    article~article {
+        padding: 0 2rem 2rem;
+    }
+}
