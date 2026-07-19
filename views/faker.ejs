@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+
+    <body class="page">
+        <%- include('partials/nav') %>
+            <main>
+                <section>
+                    <h1>Faker-js</h1>
+                    <p class="sources"><a href="https://github.com/faker-js/faker" target="_blank">Faker-js</a> is a
+                        library
+                        for
+                        generating fake data. Faker-js can generated a wide variety of fake data including names,
+                        addresses,
+                        phone numbers, and more.</p>
+                    <p>code example:
+                    <pre class="code-block-bg">
+                        <code>
+                         import { faker } from '@faker-js/faker';
+        
+                            console.log(faker.person.fullName());
+                            console.log(faker.location.city());
+                            console.log(faker.phone.number());
+                            <%= randomName %>
+                         
+                            <!-- <%= fakeData.city %>
+                            <%= fakeData.phone %> -->
+                        </code>
+                    </pre>
+                    </p>
+
+                </section>
+            </main>
+            <%- include('partials/footer') %>
+    </body>
+
+</html>
