@@ -17,10 +17,11 @@
                         addresses, phone numbers, and more.
                     </p>
 
-                    <p>The code below is a simple example of how to use Faker-js to generate fake data. When you refrest the
-                        page, new fake data will be generated and displayed after the => symbols. 
+                    <p>The code below is a simple example of how to use Faker-js to generate fake data. When you refrest
+                        the
+                        page, new fake data will be generated and displayed after the => symbols.
                     </p>
-                    <p><b>Code example: Refresh the page to see new fake data.</b></p>    
+                    <p><b>Code example: Refresh the page to see new fake data.</b></p>
                     <pre class="code-block-bg">
                         <code>
                          import { faker } from '@faker-js/faker';
@@ -30,7 +31,34 @@
                          console.log(faker.phone.number());    => <%= fakeData.phone %></code>
                     </pre>
                     </p>
-                    <p><b>User IP:</b> <%= userIp %></p>
+
+                </section>
+                <section>
+                    <h1>APILayer IPstack API Data</h1>
+                    <p class="sources">The following information is retrieved using the
+                        <a href="https://ipstack.com/" target="_blank">APILayer IPstack API</a> based on the user's IP
+                        address. This information is based on the user's IP address and may not always be accurate.
+                    </p>
+                    <p><b>Note:</b>The API has a API rate limit, if you spam the refresh button too quickly, you may hit
+                        the limit and the data will not update.</p>
+                    <p><b>APILayer IPstack API Data:</b></p>
+                    <ul class="features">
+                        <li><b>User IP:</b>
+                            <%= userIp %>
+                        </li>
+                        <li><b>Carrier:</b>
+                            <%= ipData.carrier %>
+                        </li>
+                        <li><b>City/State:</b>
+                            <%= ipData.cityState %>
+                        </li>
+                        <li><b>Connection Type:</b>
+                            <%= ipData.connectionType %>
+                        </li>
+                        <li><b>Timezone:</b>
+                            <%= ipData.timezone %>
+                        </li>
+                    </ul>
                 </section>
             </main>
             <%- include('partials/footer') %>
