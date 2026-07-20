@@ -24,16 +24,13 @@ app.get("/javascript", (req, res) => {
 })
 
 app.get("/faker", (req, res) => {
-  const randomName =  faker.person.fullName();
-  console.log(randomName);
   let fakeData = {
     name: faker.person.fullName(),
     city: faker.location.city(),
     phone: faker.phone.number()
   };
   console.log(fakeData);
-  // res.render("faker")
-  res.render("faker", { randomName })
+  res.render("faker", { fakeData })
 })
 
 app.listen(port, () => {
