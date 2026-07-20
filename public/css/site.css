@@ -7,6 +7,12 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100dvh;
+    font-family: 'Open Sans', 'Montserrat', sans-serif;
+}
+h1,
+h2 {
+    font-family: "Montserrat", sans-serif !important;
+    font-weight: 500;
 }
 
 .text-forground {
@@ -238,6 +244,15 @@ ul.features {
     grid-column: col1-start / col2-end;
     grid-row: row3-start;
 }
+
+.code-block-bg {
+    background-color: #444251;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    color:#f2f2f2
+}
+
 /* Stack on small screens */
 
 @media (max-width: 850px) {

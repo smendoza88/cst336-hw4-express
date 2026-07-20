@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+
+    <body class="page">
+        <%- include('partials/nav') %>
+            <main>
+                <section>
+                    <div class="montey-banner">
+                        <img src="/img/montey-java.png" alt="CST336 Mascot">
+                    </div>
+                    <h1>Faker-js</h1>
+                    <p class="sources"><a href="https://github.com/faker-js/faker" target="_blank">Faker-js</a> is a
+                        library
+                        for
+                        generating fake data. Faker-js can generated a wide variety of fake data including names,
+                        addresses, phone numbers, and more.
+                    </p>
+
+                    <p>The code below is a simple example of how to use Faker-js to generate fake data. When you refrest the
+                        page, new fake data will be generated and displayed after the => symbols. 
+                    </p>
+                    <p><b>Code example: Refresh the page to see new fake data.</b></p>    
+                    <pre class="code-block-bg">
+                        <code>
+                         import { faker } from '@faker-js/faker';
+                   
+                         console.log(faker.person.fullName()); => <%= fakeData.name %>
+                         console.log(faker.location.city());   => <%= fakeData.city %>
+                         console.log(faker.phone.number());    => <%= fakeData.phone %></code>
+                    </pre>
+                    </p>
+
+                </section>
+            </main>
+            <%- include('partials/footer') %>
+    </body>
+
+</html>

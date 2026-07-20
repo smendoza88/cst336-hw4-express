@@ -1,4 +1,5 @@
 import express from "express"
+import { faker } from "@faker-js/faker";
 
 const app = express()
 const port = 3000
@@ -20,6 +21,16 @@ app.get("/csharp", (req, res) => {
 
 app.get("/javascript", (req, res) => {
   res.render("javascript")
+})
+
+app.get("/faker", (req, res) => {
+  let fakeData = {
+    name: faker.person.fullName(),
+    city: faker.location.city(),
+    phone: faker.phone.number()
+  };
+  console.log(fakeData);
+  res.render("faker", { fakeData })
 })
 
 app.listen(port, () => {
