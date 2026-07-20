@@ -5,6 +5,8 @@ const app = express()
 const port = 3000
 
 app.set("view engine", "ejs");
+// Enable trust proxy to capture the correct client IP from Render
+app.set('trust proxy', true)
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
