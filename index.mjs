@@ -30,7 +30,10 @@ app.get("/faker", (req, res) => {
     phone: faker.phone.number()
   };
   console.log(fakeData);
-  res.render("faker", { fakeData })
+
+  const userIp = req.ip
+  console.log(`User IP: ${userIp}`);
+  res.render("faker", { fakeData, userIp })
 })
 
 app.listen(port, () => {
