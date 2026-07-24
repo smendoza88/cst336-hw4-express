@@ -61,14 +61,14 @@ app.get("/faker", async (req, res) => {
 
     console.log(ipData);
     console.log(`User IP: ${userIp}`);
-    // console.log(`APILAYER_KEY: ${process.env.APILAYER_KEY}`);
+   
 
     res.render("faker", { fakeData, userIp, ipData });
 
   } catch (error) {
     // 3. Catches network failures, aborted requests, or thrown errors above
     console.error("Fetch operation failed:", error.message);
-    // Handle the error according to your app's workflow
+    // Handle the error. Adding logging to see why the IPStack api was failing. The rate limit is low.
   }
 });
 
